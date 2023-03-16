@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_webapi_first_course/services/journal_service.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'screens/home_screen/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
+
+  journalService service = journalService();
+  service.register("Olá mundo!");
+  service.get();
 }
 
 class MyApp extends StatelessWidget {
@@ -14,11 +20,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.grey,
-        appBarTheme: AppBarTheme(
-            backgroundColor: Colors.black,
-            titleTextStyle: TextStyle(
-              color: Colors.white,
-            )),
+        appBarTheme: const AppBarTheme(
+          elevation: 0,
+          backgroundColor: Colors.black,
+          titleTextStyle: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        textTheme: GoogleFonts.bitterTextTheme(),
       ),
       darkTheme: ThemeData.dark(),
       themeMode: ThemeMode.light,
