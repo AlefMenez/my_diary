@@ -8,9 +8,9 @@ import 'screens/home_screen/home_screen.dart';
 void main() {
   runApp(const MyApp());
 
-  journalService service = journalService();
-  service.register(Journal.empty());
-  //service.get();
+  JournalService service = JournalService();
+  //service.register(Journal.empty());
+  service.getAll();
 }
 
 class MyApp extends StatelessWidget {
@@ -48,6 +48,7 @@ class MyApp extends StatelessWidget {
               },
             );
           }
+          return null;
         });
   }
 }
