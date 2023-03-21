@@ -5,6 +5,7 @@ class Journal {
   String content;
   DateTime createdAt;
   DateTime updatedAt;
+  
 
   Journal({
     required this.id,
@@ -26,16 +27,15 @@ class Journal {
           map["created_at"],
         ),
         updatedAt = DateTime.parse(
-          map["updated._at"],
+          map["updated_at"],
         );
-
- 
 
   @override
   String toString() {
     return "$content \ncreated_at: $createdAt\nupdated_at:$updatedAt";
   }
-   Map<String, dynamic> toMap() {
+
+  Map<String, dynamic> toMap() {
     return {
       "id": id,
       "content": content,
