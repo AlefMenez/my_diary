@@ -1,4 +1,16 @@
 {
+  "users": [
+    {
+      "email": "alef.menezes2001@gmail.com",
+      "password": "$2a$10$fgCcWP6/6qVuOeTfkJ/pV.9SDVTnbJniHVQOxYOvR86KU82GyX.aq",
+      "id": 1
+    },
+    {
+      "email": "alef.santos@gmail.com",
+      "password": "$2a$10$cpe27C9/6wSJl5QsRDgspOTSH9amYfQH3BIfLO9ulFqKqtY3WWGxq",
+      "id": 2
+    }
+  ],
   "learnhtttp": {
     "content": "Olá mundo!"
   },
