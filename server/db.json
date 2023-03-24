@@ -14,6 +14,11 @@
       "email": "alex.atracao@gmail",
       "password": "$2a$10$z/aet8uhBej9rYUghgHmBuaNAYGqlln/icS/x1br45bhTneoui4aC",
       "id": 3
+    },
+    {
+      "email": "alefwsm@gmail.com",
+      "password": "$2a$10$jF5sUubIgvo7DiDW7UttbuA8hQ5AOBhocvZtRxakiyW7V86uBokDW",
+      "id": 4
     }
   ],
   "learnhtttp": {
