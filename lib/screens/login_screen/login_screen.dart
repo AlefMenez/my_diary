@@ -1,4 +1,8 @@
+import 'dart:async';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_webapi_first_course/screens/commom/exception_dialog.dart';
 
 import '../../services/auth_service.dart';
 import '../commom/confirmation_dialog.dart';
@@ -6,10 +10,10 @@ import '../commom/confirmation_dialog.dart';
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
 
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passController = TextEditingController();
 
-  AuthService service = AuthService();
+ final AuthService service = AuthService();
 
   @override
   Widget build(BuildContext context) {
@@ -67,13 +71,23 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  login(BuildContext context) async {
+  login(BuildContext context) {
     String email = _emailController.text;
     String password = _passController.text;
 
-    try {
-      bool result = await service.login(email: email, password: password);
-    } on UserNotFindExcecption {
+    service.login(email: email, password: password).then(
+      (resultLogin) {
+        if (resultLogin) {
+          Navigator.pushReplacementNamed(context, "home");
+        }
+      },
+    ).catchError(
+      (error) {
+        var innerError = error as HttpException;
+        showExceptionDialog(context, content: error.message);
+      },
+      test: (error) => error is HttpException,
+    ).catchError((error) {
       showConfirmationDialog(
         context,
         content:
@@ -82,10 +96,16 @@ class LoginScreen extends StatelessWidget {
       ).then(
         (value) {
           if (value != null && value) {
-            service.register(email: email, password: password);
+            service.register(email: email, password: password).then(
+              (resultRegister) {
+                Navigator.pushReplacementNamed(context, 'home');
+              },
+            );
           }
         },
       );
-    }
+    }, test: (error) => error is UserNotFindExcecption).catchError((error) {
+      showExceptionDialog(context, content: "the server is down");
+    }, test: (error) => error is TimeoutException);
   }
 }

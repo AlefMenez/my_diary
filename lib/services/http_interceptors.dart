@@ -12,7 +12,7 @@ class LoggingInterceptor implements InterceptorContract {
   @override
   Future<ResponseData> interceptResponse({required ResponseData data}) async {
     if(data.statusCode ~/ 100==2){
-      logger.i("Resposta de ${data.url}\n${data.statusCode}\nCabeçalhos: ${data.headers}\n${data.body}");
+      logger.i("Respostas de ${data.url}\n${data.statusCode}\nCabeçalhos: ${data.headers}\n${data.body}");
 
     } else{
       logger.e("Resposta de ${data.url}\n${data.statusCode}\n ${data.headers}\n${data.body}");
