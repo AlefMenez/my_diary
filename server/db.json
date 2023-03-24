@@ -9,11 +9,15 @@
       "email": "alef.santos@gmail.com",
       "password": "$2a$10$cpe27C9/6wSJl5QsRDgspOTSH9amYfQH3BIfLO9ulFqKqtY3WWGxq",
       "id": 2
+    },
+    {
+      "email": "alex.atracao@gmail",
+      "password": "$2a$10$z/aet8uhBej9rYUghgHmBuaNAYGqlln/icS/x1br45bhTneoui4aC",
+      "id": 3
     }
   ],
   "learnhtttp": {
     "content": "Olá mundo!"
   },
-  "journals": [
-  ]
+  "journals": []
 }
